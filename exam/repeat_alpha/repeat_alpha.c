@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhibbeln <bhibbeln@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 09:31:03 by bhibbeln          #+#    #+#             */
-/*   Updated: 2025/03/18 16:32:31 by bhibbeln         ###   ########.fr       */
+/*   Created: 2025/03/18 18:45:56 by bhibbeln          #+#    #+#             */
+/*   Updated: 2025/03/18 19:11:37 by bhibbeln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+int	main(int argc, char **argv[])
 {
-	int n1;
-	int n2;
-	int n3;
+	int i;
+	int j;
+	int alphA;
+	int alpha;
 
-	n1 = 48;
-	n1 = 49;
-	n1 = 50;
-	
-	while ((n1 != n2) && (n1 != n3))
+	i = 0;
+	j = 1;
+	if (argc < 1)
 	{
-		
+		write(1, "\n", 1);
+		return (0);
+	}
+	while (argc)
+	{
+		if(argv[1][i] == i)
+			return
 	}
 }
