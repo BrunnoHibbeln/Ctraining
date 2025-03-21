@@ -1,41 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bhibbeln <bhibbeln@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 16:35:30 by bhibbeln          #+#    #+#             */
-/*   Updated: 2025/03/19 11:10:57 by bhibbeln         ###   ########.fr       */
+/*   Created: 2025/03/19 15:59:10 by bhibbeln          #+#    #+#             */
+/*   Updated: 2025/03/19 17:14:05 by bhibbeln         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
 
-void	ft_convert(int nb)
+int	ft_atoi(char *str)
 {
-	char str;
-	
-	if (nb > 9)
-		ft_convert(nb / 10);
-	str = (nb % 10) + '0';
-	write(1, &str, 1);
+	int nb;
+
+	nb = 0;
+	while (!((*str >= 48) && (*str <= 57)))
+	{
+		*str++;
+		if (!(*str))
+			return (0);
+	}
+	if ((*--str) == '-')
+	{
+		*str++;
+		write(1, "-", 1);
+	}
+	else
+	{
+		*str++;
+	}
+	while ((*str >= 48) && (*str <= 57))
+	{
+		nb *= 10;
+		nb += *str - '0';
+		str++;
+	}
+	return (nb);
 }
 
 int	main(void)
 {
-	int i;
-
-	i = 1;
-	while (i < 101)
-	{
-		if ((i % 3) == 0)
-			write(1, "fizz", 4);
-		if ((i % 5) == 0)
-			write(1, "buzz", 4);
-		if (((i % 3) != 0) && ((i % 5) != 0))
-			ft_convert(i);
-		i++;
-		write(1, "\n", 1);
-	}
+	char str[] = "  aodjs";
+	printf("%d",ft_atoi(str));
 }
